@@ -1,0 +1,25 @@
+﻿@using Zani.Thomas._5i.XMLReadWrite2
+@model List<Persona>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Contatti</h2>
+@using (Html.BeginForm("Aggiungi", "Default", FormMethod.Post))
+{
+    <button type="submit" name="ButtonAggiungi" class="btn btn-primary">AGGIUNGI CONTATTO</button>
+}
+<table class="table table-bordered">
+    @foreach (Persona m in Model)
+    {
+
+        <tr>
+            <td>@m.nome</td>
+            <td>@m.cognome</td>
+            <td>@m.telefono</td>
+            <td>@m.indirizzo</td>
+            <td>@Html.ActionLink("Dettagli", "Dettagli", new { id = m.id })</td>
+        </tr>
+    }
+</table>
